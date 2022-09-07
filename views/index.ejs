@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="utf-8" />
+    <title>Products</title>
+</head>
+
+<body>
+    <nav>
+        <a href="/products/new">Add New Product</a>
+    </nav>
+    <h1>Shop / Products</h1>
+    <DIV class="list-container">
+        <% products.forEach(product=> { %>
+            <ul>
+                <li>
+                    <a href="/products/<%=product._id%>">
+                        <h2>
+                            <%= product.name %>
+                        </h2>
+                        <img src="<%= product.img %>">
+                    </a>
+                </li>
+                <li>
+                    <%= product.description %>
+                </li>
+                <br>
+            </ul>
+            <% }) %>
+    </DIV>
+</body>
+
+</html>
