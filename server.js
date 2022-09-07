@@ -69,7 +69,7 @@ app.get("/products", function (req, res) {
 });
 
 //NEW
-app.get("/products/new" , function (req, res){
+app.get("/products/new", function (req, res) {
     res.render("new.ejs")
 });
 
@@ -82,11 +82,25 @@ app.put('/products/:id', (req, res) => {
     }, () => {
         res.redirect(`/products/${req.params.id}`)
     })
-})
-//CREATE
-//EDIT
-//SHOW
+});
 
+//CREATE
+app.post("/products", function (req, res) {
+    Product.create(req.body, (error, createdProduct) => {
+        res.redirect("/products")
+    });
+});
+
+//EDIT
+
+//SHOW
+app.get("/products/:id", (req, res)=>{
+    Product.findById(req.params.id, (err, foundProduct)=>{
+        res.render("show.ejs" , {
+            product: foundProduct,
+        });
+    });
+});
 
 // LISTENER
 const PORT = process.env.PORT;
