@@ -6,9 +6,12 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require("method-override");
+const Product = require('./models/products');
 
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride())
+app.use(express.static(__dirname + '/public')); 
 
 /////////////////////
 //DATABASE CONNECTION -------------
