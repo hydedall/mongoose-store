@@ -85,11 +85,11 @@ app.put('/products/:id', (req, res) => {
 });
 
 //CREATE
-app.post("/products", function (req, res) {
-    Product.create(req.body, (error, createdProduct) => {
-        res.redirect("/products")
-    });
-});
+app.post('/products', (req, res) => {
+    Product.create(req.body, () => {
+        res.redirect('/products')
+    })
+})
 
 //EDIT
 
