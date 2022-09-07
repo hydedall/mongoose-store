@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Product</title>
+</head>
+
+<body>
+    <h1>Edit Product</h1>
+    <form action="/products/<%=product._id%>?_method=PUT" method="POST">
+        <!--FORM IS PRE-POPULATED WITH VALUES DIRECTLY FROM SERVER-->
+        Name: <input type="text" name="name" value="<%=product.name%>" /><br />
+        Image: <img src="<%=product.img%>"><br>
+        Description: <input type="text" name="description" value="<%=product.description%>" /><br />
+        Price: <input type="number" name="price" value="<%=product.price%>">
+        <br />
+        Amount: <input type="number" name="qty" value="<%= product.qty%>">
+        <br />
+        <input type="submit" value="Submit Changes" />
+    </form>
+</body>
+
+</html>
