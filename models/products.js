@@ -1,13 +1,22 @@
-const mongoose = require('mongoose');
+//ENABLES MONGOOSE ACCESS
+const mongoose = require('mongoose')
 
-const productSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    img: { type: String, required: true },
-    price: { type: Number, required: true },
-    qty: { type: Number, required: true }
-});
+//SCHEMA SETUP
+const Schema = mongoose.Schema
 
-const Product = mongoose.model('Product', productSchema);
+//CREATES PRODUCT FROM SCHEMA THROUGH MONGOOSE
+const productSchema = new Schema(
+    {
+        name: { type: String, required: true },
+        description: String,
+        img: String,
+        price: { type: Number, min: [0, "can't be less than 0"] },
+        qty: { type: Number, min: [0, "can't be less than 0"] }
+    }
+)
 
-module.exports = Product;
+//BUILDS PRODUCT MODEL
+const Product = mongoose.model('Product', productSchema)
+
+//EXPORTS
+module.exports = Product
