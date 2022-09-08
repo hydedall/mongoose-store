@@ -10,8 +10,8 @@ const Product = require('./models/products');
 
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride())
-app.use(express.static(__dirname + '/public')); 
+app.use(methodOverride("_method"));
+app.use(express.static("public")); 
 
 /////////////////////
 //DATABASE CONNECTION -------------

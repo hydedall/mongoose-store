@@ -1,3 +1,9 @@
 body {
     text-align: center;
 }
+
+img {
+    margin: auto;
+}
+
+/* Was trying to get images that are big to stay a specific size */
