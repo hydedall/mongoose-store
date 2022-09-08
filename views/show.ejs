@@ -26,9 +26,17 @@
     </p>
     <% if (product.qty <=0) { %>
         <p>Out of Stock...</p>
-        <% } %>
-            </p>
-            <a href="/products">Back To Shop</a>
+        <% } else { %>
+            <h2>
+                <%= product.qty%>
+            </h2>
+            <form action="/products/<%=productId%>/buy?_method=PUT" method="POST">
+                <input type="submit" value="Buy">
+                <!-- class="delete"  -->
+            </form>
+            <% } %>
+
+                <a href="/products">Back To Shop</a>
 </body>
 
 </html>
