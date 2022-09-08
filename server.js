@@ -92,7 +92,7 @@ app.post('/products', (req, res) => {
     Product.create(req.body, () => {
         res.redirect('/products')
     })
-})
+});
 
 //EDIT
 

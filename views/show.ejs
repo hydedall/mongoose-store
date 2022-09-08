@@ -21,9 +21,14 @@
     </h2>
     <p>Price: $<%= product.price %>
     </p>
-    <p>Quantity: <%= product.qty %>
+    <p>Quantity:
+        <%= product.qty%>
     </p>
-    <a href="/products">Back To Shop</a>
+    <% if (product.qty <=0) { %>
+        <p>Out of Stock...</p>
+        <% } %>
+            </p>
+            <a href="/products">Back To Shop</a>
 </body>
 
 </html>
